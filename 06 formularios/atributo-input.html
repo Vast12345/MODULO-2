@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos Input</title>
+</head>
+<body>
+    <h1>Atributos Input</h1>
+    <hr>
+    <br>
+    <form action="https://www.google.com/search" method="get">
+        <label for="fnombres">Escoja su navigador</label>
+        <input type="text" name="fnombre" id="fnombre" maxlength="15" min="1" placeholder="Ingrese su primer nombre" size="17" list="browser" value="Chrome" pattern="[a-zA-Z]{1,15}">
+        <!-- <datalist id="browser">
+            <option value="Chrome"></option>
+            <option value="Edge"></option>
+            <option value="Opera"></option>
+            <option value="Firefox"></option>
+        </datalist> -->
+        
+        <br><br>
+        <label for="pass">Contrasena</label>
+        <input type="password" name="pass" id="pass">
+
+        <br><br>
+        Lenguaje de Programacion favorito:
+        <br>
+        <input type="radio" name="lengprog" id="Ada" value="Ada">
+        <label for="lengprog">Ada</label><br>
+        <input type="radio" name="lengprog" id="Python" checked value="Python">
+        <label for="lengprog">Python</label><br>
+        <input type="radio" name="lengprog" id="Java" value="Java">
+        <label for="lengprog">Java</label><br>
+        <input type="radio" name="lengprog" id="Javascript" value="Javascript">
+        <label for="lengprog">Javascript</label><br>
+
+        <br><br>
+        Pasatiempos
+        <br>
+        <input type="checkbox" name="pasatiempos" id="leer" value="leer" checked>
+        <label for="leer">leer</label><br>
+        <input type="checkbox" name="pasatiempos" id="cine" value="cine" checked>
+        <label for="cine">cine</label><br>
+        <input type="checkbox" name="pasatiempos" id="gym" value="gym">
+        <label for="gym">Gym</label><br>
+        <input type="checkbox" name="pasatiempos" id="eat" value="eat">
+        <label for="eat">Eat</label><br>
+        <input type="checkbox" name="pasatiempos" id="bailar" value="bailar">
+        <label for="bailar">Bailar</label><br>
+        <input type="checkbox" name="pasatiempos" id="programar" value="programar" checked>
+        <label for="programar">Programar</label><br>
+
+        <br>
+        <input type="button" value="Ver mensaje" onclick="alert('Feliz Halloween')">
+
+        <br><br>
+        <label for="colofav">Escoja un color</label>
+        <input type="color" name="colorfav" id="colorfav">
+
+        <br><br>
+        <label for="fechanac">Fecha de nacimiento</label>
+        <input type="date" name="fechanac" id="fechanac">
+
+        <br><br>
+        <label for="fechanac">Ingrese una fecha anterior a 2000/01/01</label>
+        <input type="date" name="fechanac" id="fechanac" max="1999-12-31">
+
+        <br><br>
+        <label for="fechanac">Ingrese una fecha posterior a 2020/01/01</label>
+        <input type="date" name="fechanac" id="fechanac" min="2020-01-02">
+
+        <br>
+        <label for="fecha-hora-nac">Fecha y hora de nacimiento</label>
+        <input type="datetime-local" name="fecha-hora-nac" id="fecha-hora-nac">
+
+        <br><br>
+        <label for="iemail">Ingrese su correo electronico</label>
+        <input type="email" name="iemail" id="iemail" required>
+
+        <br><br>
+        <input type="image" src="icons/marvel.png" alt="Icono de spiderman" width="100" onclick="alert('Pizza Time')">
+
+        <br><br>
+        <label for="archivo">Escojha un archivo</label>
+        <input type="file" name="archivo" id="archivo" accept=".png,.jpg,.gif">
+
+
+        <input type="hidden" name="estadoform" value="completo">
+
+        <br><br>
+        <label for="mesnac">Mes de nacimiento</label>
+        <input type="month" name="mesnac" id="mesnac">
+        
+        <br><br>
+        <label for="edad">Edad</label>
+        <input type="number" name="edad" id="edad" min="18" max="40" value="25" step="2">
+
+        <br><br>
+        <label for="volumen">Seleccione el volumen</label>
+        <input type="range" name="volumen" id="volumen" min="10" max="50" step="5">
+
+        <br><br>
+        <label for="busqueda">Buscar en Google: </label>
+        <input type="search" name="q" id="busqueda">
+
+        <br><br>
+        <label for="comentarios">Escribe sus comentarios</label>
+        <textarea name="comentarios" id="comentarios" cols="30" rows="10" placeholder=":O"></textarea>
+
+
+
+        <br><br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar">
+    </form>
+</body>
+</html>
