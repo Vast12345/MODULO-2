@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Exercise</title>
+</head>
+<body>
+    <form action=""></form>
+        <fieldset>
+            <legend>Indique sus preferencias por favor</legend>
+            <label for="fecha">Elige una Fecha</label>
+            <input type="date" name="fecha" id="fecha">
+            <br>
+            <label for="archive">Elije un fichero:</label>
+            <input type="file" name="archive" id="archive">
+            <br>
+            <input type="radio" name="cpu" id="AMD" value="AMD">
+            <label for="cpu"> AMD</label>
+            <input type="radio" name="cpu" id="Intel i5" value="Intel i5">
+            <label for="cpu">Intel i5</label>
+            <input type="radio" name="cpu" id="Intel i7" value="Intel i7">
+            <label for="cpu">Intel i7</label>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Indique sus preferencias por favor</legend>
+            <input type="radio" name="subject" id="Mathematics" value="Mathematics">
+            <label for="subject">Mathematics</label>
+            <input type="radio" name="subject" id="History" value="History">
+            <label for="subject">History</label>
+            <input type="radio" name="subject" id="Geogrophy" value="Geogrophy">
+            <label for="subject">Geogrophy</label>
+            <input type="radio" name="subject" id="Language" value="Language">
+            <label for="subject">Language</label>
+            <br>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name"><br>
+            <label for="lastname">Lastname</label>
+            <input type="text" name="lastname" id="lastname"><br>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description">
+            <br><br>
+            <label for="colour">Input a color</label>
+            <input type="color" name="colour" id="colour">
+            <br>
+            <label for="textbox"></label>
+            <textarea name="textbox" id="textbox" cols="30" rows="10" placeholder="Utilice este cuadro para escribir"></textarea>
+            <br>
+            <label for="fecha2">Input a date</label>
+            <input type="date" name="fecha2" id="fecha2">
+            <br>
+            <label for="language"></label>
+            <select name="language" id="language">
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="japanese">Japanese</option>
+                <option value="russian">Russian</option>
+                <option value="german">German</option>
+                <option value="french">French</option>
+                <option value="swedish">Swedish</option>
+            </select>
+            <br>
+            <label for="hour">Input an hour</label>
+            <input type="time" name="hour" id="hour">
+            <br>
+            <label for="file2">Input a file</label>
+            <input type="file" name="file2" id="file2">
+            <br>
+            <input type="checkbox" name="gender" id="Male" value="Male">
+            <label for="man">Male</label>
+            <input type="checkbox" name="gender" id="Female" value="Female">
+            <label for="woman">Female</label>
+        </fieldset>
+        <br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpiar">
+</body>
+</html>
