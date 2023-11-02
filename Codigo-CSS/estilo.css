@@ -1,0 +1,29 @@
+*{
+    color:grey
+}
+
+p{
+    color:greenyellow
+}
+
+.text-import{
+    color:red;
+    font-size: 1.5em;
+}
+
+#text-html{
+    color:blue
+}
+
+div p sub{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+
+div p .text-import {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+u, i, .text-import {
+    border: 1px solid red;
+}
