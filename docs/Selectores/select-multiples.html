@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores multiples</title>
+    <style>
+        .classic {
+            border: 1px solid tomato;
+        }
+        .primary {
+            font-size: 5rem;
+        }
+        .large {
+            width: 50%;
+        }
+        button.classic.primary.large {
+            color: limegreen;
+        }
+        button.classic.primary.large:active {
+            border: 2px solid blue;
+        }
+        button[disabled] {
+            width: 25%;
+        }
+        [disabled] {
+            border: 2px solid black;
+            margin-left: 50px;
+        }
+        a[rel="nofollow"] {
+            background-color: red;
+        }
+        [data-mood~="happy"] {
+            background: green;
+            color: white;
+            padding: 5px;
+        }
+        [lang|="es"] {
+            background: red;
+            color: white;
+            padding: 5px;
+        }
+        [lang|="es"]:hover {
+            background-color: blueviolet;
+        }
+        a[href]::after {
+            content: "URL: [" attr(href) "]";
+            display: inline-block;
+            color: #666;
+        }
+        a[href^="http:"]::after {
+            content: "(Pagina insegura): " attr(href);
+            color: red;
+        }
+        a[href^="http:"]:link {
+            color: brown;
+            border: 4px solid green;
+        }
+        a[href^="http:"]:visited {
+            color: brown;
+            background-color: aqua;
+            border: 3px solid black;
+        }
+        a[href$=".pdf"]::before {
+            content: url(downloads.png);
+        }
+        a[href*="campus"] {
+            border: 1px solid lightskyblue;
+        }
+        input#nombre:focus {
+            border: 4px solid aquamarine;
+        }
+        form:focus-within {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button class="classic primary large">Boton</button>
+    <br><br>
+    <button class="classic large" disabled>Boton 2</button>
+
+    <br><br>
+    <input type="radio" name="miradio" id="miradio" disabled>
+
+    <br><br>
+    <a href="https://www.campuslands.com" rel="nofollow">Campus Lands</a>
+    <br><br>
+    <a href="https://www.google.com" data-mood="happy">Google.com</a>
+
+    <br><br>
+    <div data-mood="happy sad">Uno</div>
+
+    <br><br>
+    <div lang="es-MX en-EN">English</div>
+
+    <br><br>
+    <a href="https://campuslands.com">Campus Lands</a><br>
+    <a href="http://campuslands.com">Campus Lands</a>
+
+    <br><br>
+    <a href="https://campuslands.pdf" download>Documento PDF de Campus Lands</a>
+    <br><br>
+
+    <form>
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre">
+        <br><br>
+        <label for="lastname">Apellido: </label>
+        <input type="text" name="lastname" id="lastname">
+        <br>
+    </form>
+
+</body>
+</html>
