@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 2rem;
+            font-size: 2rem;
+            font-family: sans-serif;
+            background-color: black;
+            height: 2600px;
+        }
+        h1 {
+            color: white;
+            font-size: 3rem;
+            text-align: center;
+        }
+        div {
+            border-radius: 5px;
+            background-color: grey;
+        }
+        .static {
+            background-color: #dddddd;
+        }
+        .relative {
+            background-color: #81c476;
+        }
+        .absolute {
+            background-color: #fc9191;
+        }
+        .fixed {
+            background-color: #a8d5e2;
+        }
+        .sticky {
+            background-color: #e1e1ac;
+        }
+
+        /*CSS Position*/
+        .static {
+            position: static;
+            z-index: -2;
+        }
+        .relative {
+            position: relative;
+            left: 50px;
+            top: 5px;
+            z-index: 2;
+        }
+        .parent {
+            position: relative;
+        }
+        .absolute {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: -1;
+        }
+        .fixed {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+        }
+        .sticky {
+            position: sticky;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Posiiton</h1>
+    <div class="parent">
+        <!-- div.static{Static}*5-->
+        <div class="static">Static</div>
+        <div class="relative">Relative</div>
+        <div class="absolute">x</div>
+        <div class="fixed">Fixed</div>
+        <div class="sticky">Sticky</div>
+        <div class="static">Static</div>
+        <div class="static">Static</div>
+        <div class="static">Static</div>
+    </div>
+</body>
+</html>
