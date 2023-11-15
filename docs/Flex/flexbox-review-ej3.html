@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+    <style>
+        * {
+            font-family: sans-serif;
+            font-size: large;
+        }
+        body {
+            display: flex;
+            flex-flow: column;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        header {
+            width: 100%;
+            height: 10%;
+            background-color: peru;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main {
+            display: flex;
+            flex-flow: row;
+            height: 100%;
+        }
+        .gray, .white {
+            padding: 24px;
+        }
+        .gray {
+            background-color: gray;
+            color: white;
+            flex-grow: 1;
+        }
+        .white {
+            background-color: white;
+            color: black;
+            flex-grow: 3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Titulo de la pagina</h1>
+    </header>
+    <main>
+        <div class="gray">Leteral izquierda</div>
+        <div class="white">Zona Central</div>
+        <div class="gray">Lateral derecho</div>
+    </main>
+</body>
+</html>
