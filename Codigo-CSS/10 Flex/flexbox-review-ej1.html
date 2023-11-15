@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <style>
+        body {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+        }
+        .box {
+            width: 200px;
+            display: flex;
+            flex-flow: column wrap;
+            border: 1px solid lightgray;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+            height: 40px;
+            background-color: black;
+            color: white;
+        }
+        main {
+            margin: 10px;
+            height: 100px;
+        }
+        footer {
+            width: 100%;
+            height: 30px;
+            background-color: black;
+            opacity: 0.5;
+            color: whitesmoke;
+        }
+        header, footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <header>Tarjeta Izquierda</header>
+        <main>
+            Contenido del Cuerpo<br><br>
+            Contenido del Cuerpo<br><br>
+            Contenido del Cuerpo
+        </main>
+        <footer>Pie</footer>
+    </div>
+    <div class="box">
+        <header>Tarjeta Centro</header>
+        <main>Contenido del Cuerpo</main>
+        <footer>Pie</footer>
+    </div>
+    <div class="box">
+        <header>Tarjeta Derecha</header>
+        <main>Contenido del Cuerpo</main>
+        <footer>Pie</footer>
+    </div>
+</body>
+</html>
