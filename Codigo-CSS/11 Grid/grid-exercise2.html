@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise2</title>
+    <style>
+        .container {
+            background: white;
+            padding: 5px;
+            margin: 0 auto;
+            display: grid;
+            width: 50%;
+            height: 50vh;
+            gap: 20px;
+            grid-template-columns: auto auto auto;
+        }
+        .item1, .item2, .item3 {
+            background: darkorange;
+        }
+        .item2 {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .item4 {
+            background: cadetblue;
+            grid-row-start: 4;
+            grid-row-end: 2;
+        }
+        .item5, .item6 {
+            background-color: maroon;
+        }
+        .item6 {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 4;
+            grid-row-end: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+        <div class="item4"></div>
+        <div class="item5"></div>
+        <div class="item6"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+    <style>
+        .container {
+            background-image: linear-gradient(to top, gray, white);
+            padding: 5px;
+            margin: 0 auto;
+            display: grid;
+            width: 50%;
+            height: 30vh;
+            gap: 10px;
+            grid-template-areas: "left middle right";
+            grid-template-columns: auto auto auto;
+        }
+        .item1, .item2, .item3 {
+            border: 1px solid black;
+        }
+        .item1 {
+            background-color: orange;
+            grid-area: left;
+        }
+        .item2 {
+            background-color: cadetblue;
+            grid-area: middle;
+        }
+        .item3 {
+            background-color: maroon;
+            grid-area: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+    </div>
+</body>
+</html>
