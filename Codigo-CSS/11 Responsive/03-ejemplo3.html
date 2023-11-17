@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-weight: bold;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        .grid div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width:480px) {
+            h1 {
+                font-size: smaller;
+            }
+            img {
+                width: 40%;
+            }
+            .santa1 {
+                grid-column: 1 / -1;
+            }
+            .pig {
+                grid-column: 1 / -1;
+            }
+            .elf {
+                grid-column: 1 / -1;
+            }
+            .santa2 {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (min-width:480px) and (max-width:768px) {
+            h1 {
+                font-size: medium;
+            }
+            /* img {
+                width: 60%;
+            } */
+            .santa1 {
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 1;
+            }
+            .pig {
+                grid-column: 2 / -1;
+                grid-row: 1 / span 1;
+            }
+            .elf {
+                grid-column: 1 / span 1;
+                grid-row: 2 / span 1;
+            }
+            .santa2 {
+                grid-column: 2 / -1;
+                grid-row: 2 / span 1;
+            }
+        }
+
+        @media (min-width:768px) {
+            h1 {
+                font-size: larger;
+            }
+            img {
+                width: 80%;
+            }
+            .santa1 {
+                grid-column: 1 / span 1
+            }
+            .pig {
+                grid-column: 2 / span 1;
+            }
+            .elf {
+                grid-column: 3 / span 1;
+            }
+            .santa2 {
+                grid-column: 4 / span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Feliz Navidad!</h1>
+    <br><br>
+    <div class="grid">
+        <div class="santa1">
+            <img src="4193253.png" alt="">
+        </div>
+        <div class="pig">
+            <img src="4193299.png" alt="">
+        </div>
+        <div class="elf">
+            <img src="4193257.png" alt="">
+        </div>
+        <div class="santa2">
+            <img src="4193265.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
