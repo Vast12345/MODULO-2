@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+@media (min-width: 768px) {
+    /* Header */
+    .mainheader {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    background-color: #FEC9DD;
+    }
+    .logo img {
+        width: 75%;
+    }
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-page, .productos, .contactos, .news {
+        padding: 20px;
+        margin: 0 20px 0 20px;
+        background-color: #4CB9A8;
+        border-radius: 10px;
+        transition: background-color 500ms ease-in-out;
+    }
+    div a {
+        text-decoration: none;
+        color: white;
+    }
+    .home-page:hover, .productos:hover, .contactos:hover, .news:hover {
+        background-color: #E82B57
+    }
+
+    /* Logo */
+    .main-intro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 60%;
+        height: 50vh;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .main-intro::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        animation: imageSlideshow 10s infinite; /* Adjust the duration as needed */
+      }
+      @keyframes imageSlideshow {
+        0% {
+          background-image: url('155dbb19-d734-4166-83df-0ec88cbd69a3.jpg'); /* Replace with your image paths */
+        }
+        50% {
+          background-image: url('cf613427-229c-4230-8b76-fa05b688516e.jpg');
+        }
+        100% {
+          background-image: url('Project/ea7ab4ab-5c53-4a70-87a1-e3ac99fb8d5f.jpg');
+        }
+      }
+    .pink-base {
+        background-color: #FEC9DD;
+        width: 50%;
+        height: 50%;
+        border-radius: 20px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+
+    }
+    .motorella-logo {
+
+    }
+}
+
+
