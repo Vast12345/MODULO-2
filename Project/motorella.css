@@ -84,6 +84,7 @@ body {
         justify-content: center;
         align-items: center;
         color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 
     }
     .motorella-logo {
@@ -102,16 +103,54 @@ body {
     .product-title {
       width: 20vh;
       height: 10vh;
-      border-bottom: 1vh solid #E82B57;
       display: flex;
       justify-content: center;
       font-size: larger;
       margin-bottom: 4rem;
     }
+    .line {
+      border: 2px solid #E82B57;
+      width: 50vw;
+      margin-bottom: 5%;
+    }
     .product-line {
       display: flex;
       flex-flow: row;
     }
+    .product1, .product2, .product3 {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      width: 40vh;
+      height: 30vh;
+      margin: 0 10px 0 10px;
+      background-color: white;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition-property: width, height, box-shadow;
+      transition-duration: 1s;
+      transition-timing-function: ease-in;
+      transition-delay: 500ms;
+    }
+    .product1:hover, .product2:hover, .product3:hover {
+      width: 50vh;
+      height: 35vh;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .product1 img, .product2 img, .product3 img {
+      width: 15vw;
+      height: 15vh;
+      margin-bottom: 2rem;
+    }
+    .goto {
+      background-color: #4CB9A8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem 2rem 1rem 2rem;
+      transition: background-color 1s;
+    }
+    .goto:hover {
+      background-color: #E82B57;
+    }
 }
-
-
