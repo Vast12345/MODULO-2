@@ -97,14 +97,15 @@ body {
 }
 .main {
     margin-top: 15vh;
+    margin-bottom: 15vh;
 }
 .pinklogo {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    height: 40vh;
+    width: 60%;
+    height: 60vh;
     margin: 0 auto;
     background-color: var(--motorpink);
     border-radius: 20px;
@@ -193,3 +194,107 @@ hr {
         height: 20vh;
     }
 }
+.about-container {
+    display: flex;
+    flex-flow: row;
+    background-color: #4EBCAA;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+}
+.about-container img {
+    min-width: 45vw;
+}
+.about-container article {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5%;
+}
+#value {
+    text-align: center;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: var(--motorwhite);
+}
+#values {
+    text-align: center;
+    font-size: large;
+    color: var(--motorwhite);
+}
+
+.about-container a {
+    width: 20%;
+    text-decoration: none;
+    color: var(--motorwhite);
+    background-color: var(--motorred);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+@media (max-width: 510px) {
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .about-container article {
+        margin-top: 5vh;
+
+    }
+    #value, #values, article>a {
+        margin: 3vh 0;
+    }
+}
+.footer {
+    width: 100%;
+    height: 40vh;
+    border-radius: 20px;
+    background-color: var(--motorgreen);
+    padding: 3rem ;
+}
+.socials {
+    display: flex;
+    justify-content: space-around;
+}
+.socials a{
+    color: var(--motorwhite);
+}
+.footer-bottom {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.directions {
+    display: flex;
+    flex-direction: column;
+}
+.directions p {
+    margin: 0.5rem 0;
+}
+.footer-logo {
+    border-radius: 20px;
+    overflow: hidden;
+}
+.footer-logo img{
+    width: 10vw;
+}
+@media (max-width: 510px) {
+    .footer {
+        height: 70vh;
+    }
+    .footer-bottom {
+        flex-direction: column;
+    }
+    .footer-logo {
+        margin-top: 5rem;
+    }
+    .footer-logo img {
+        width: 30vw;
+    }
+}
+
