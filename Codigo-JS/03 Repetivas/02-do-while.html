@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let x = Math.floor(Math.random() * (100 - 1)+1)
+        for (let i=0; i <= 10; i++) {
+            let num = Number(prompt("Input a number between 1-100"))
+            if (num > 100 || num < 0 || isNaN(num)) {
+                alert("Error, input must be a number between 1-100")
+            } else {
+                if (num === x) {
+                    alert("Congratulations, you guessed correctly")
+                    break;
+                } else if (num < x) {
+                    alert("Tu numero es menor de el numero random")
+                } else if (num > x) {
+                    alert("Tu numero es mayor de el numero random")
+                }
+            }
+        }
+    </script>
+</body>
+</html>

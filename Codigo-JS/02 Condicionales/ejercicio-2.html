@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let fecha = prompt("Ingrese una fecha con el formato dd/mm/aaaa")
+        if (fecha === null || fecha.trim() === "") {
+            alert("Fecha invalida")
+        }
+        fecha = fecha.trim()
+        let vfec = fecha.split("/")
+        let dia = Number(vfec[0])
+        let mes = Number(vfec[1])
+        let ano = Number(vfec[2])
+        if (Number.isNaN(dia) || Number.isNan(mes) || Number.isNaN(ano)) {
+            alert("La fecha no es valida")
+        } else if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1) {
+            alert("fecha invalida")
+        }
+    </script>
+</body>
+</html>
