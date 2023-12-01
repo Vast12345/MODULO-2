@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>List</h1>
+    <ul id="myList">
+
+    </ul>
+    <h3 id="promedio"></h3>
+    <script>
+        let myList = document.getElementById("myList");
+        let userInput;
+        let amount = 0
+        let sum = 0
+        do {
+            userInput = prompt("Input a number (negative to stop)")
+            if (userInput !== null) {
+                number = Number(userInput);
+                if (number < 0) {
+                    break;
+                }
+                sum += number
+                amount++
+                let newItem = document.createElement('li');
+                newItem.textContent = number;
+                myList.appendChild(newItem);
+            }
+        } while (userInput !== null)
+        let promedio = `Promedio: ${Number(sum / amount)}`
+        document.getElementById("promedio").innerHTML = promedio
+    </script>
+</body>
+</html>
