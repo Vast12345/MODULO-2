@@ -20,9 +20,11 @@
             userInput = prompt("Input a number (negative to stop)")
             if (userInput !== null) {
                 number = Number(userInput);
+                console.trace(number)
                 if (number < 0) {
                     break;
                 }
+                debugger
                 sum += number
                 amount++
                 let newItem = document.createElement('li');

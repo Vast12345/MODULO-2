@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecuacion cuadrática</title>
+    <style>
+        body {
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ecuación Cuadrática</h1>
+
+    <script>
+        // Named function
+        function cuadratica(a, b, c) {
+            let raiz = b**2 - 4 * a * c
+            let resultado = "";
+            if (raiz < 0) {
+                resultado = "NaN";
+            } else {
+                let x1 = (-b + raiz ** 0.5) / (2 * a)
+                let x2 = (-b - raiz ** 0.5) / (2 * a) 
+                resultado = `X1= ${x1}\nX2= ${x2}\n`;
+            }
+
+            return resultado;
+        }
+        // Anonymous function
+        const cuad = function(a, b, c) {
+            let raiz = b**2 - 4 * a * c
+            let resultado = "";
+            if (raiz < 0) {
+                resultado = "NaN";
+            } else {
+                let x1 = (-b + raiz ** 0.5) / (2 * a)
+                let x2 = (-b - raiz ** 0.5) / (2 * a) 
+                resultado = `X1= ${x1}\nX2= ${x2}\n`;
+            }
+
+            return resultado;
+        }
+
+        const raizcuad = (a, b, c) => b**2 - 4 * a * c
+
+        const cuadra = (a, b, c) => {
+            let raiz = raizcuad(a, b, c);
+            let resultado = "";
+            if (raiz < 0) {
+                resultado = "NaN";
+            } else {
+                let x1 = (-b + raiz ** 0.5) / (2 * a)
+                let x2 = (-b - raiz ** 0.5) / (2 * a) 
+                resultado = `X1= ${x1}\nX2= ${x2}\n`;
+            }
+
+            return resultado;
+        }
+
+        // 8 2 -5
+        // x1= 0.6 x2= -0.9
+        let a = Number(prompt("ingrese el valor de a: "))
+
+        if (a==0) {
+            alert("No es una ecuación cuadrática")
+        } else {
+            let b = Number(prompt("ingrese el valor de b: "))
+            let c = Number(prompt("ingrese el valor de c: "))
+
+            let r = cuadratica(a, b, c);
+            if (r.length > 0 && r !== "NaN") {
+                alert(r)
+            } else {
+                alert("La respuesta no existe en los reales")
+            }
+
+            
+        }
+        
+    </script>
+</body>
+</html>
