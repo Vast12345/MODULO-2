@@ -23,23 +23,24 @@
         
         let amount = leerNota("Ingrese las cantidades de atletas")
         let atletasName;
-        let atletasTime = 0;
+        let atletasDistance = 0;
+        function Athlete(name, distance)
         for (let n=0; n <= amount; n++) {
             let atletaname = prompt(`Input name of athlete ${n}`)
             let atletadistance = Number(prompt(`Input the distance for athlete ${n}`))
             if (atletadistance > atletasTime) {
                 atletasName = atletaname
-                atletasTime = atletadistance
+                atletasDistance = atletadistance
             }
         }
         
-        if (atletasTime > 15.5) {
+        if (atletasDistance > 15.5) {
             alert(`The gold medalist goes to
-${atletasName} with a time of ${atletasTime}
-You got a world record!`)
+${atletasName} with a time of ${atletasDistance}
+You got a world record! You've earned 500 million.`)
         } else {
             alert(`The gold medalist goes to
-${atletasName} with a time of ${atletasTime}`)
+${atletasName} with a time of ${atletasDistance}`)
         }
     </script>
 </body>

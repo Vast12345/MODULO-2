@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const leerNumero = function(msg) {
+            let number;
+            let repita;
+            do {
+                repita = false
+                number = Number(prompt(msg))
+                if (isNaN(number) || number < 1) {
+                    alert("Ingrese el precio correctamente")
+                    repita = true
+                }
+            } while (repita)
+            return number;
+        }
+        const perimeter = (a) => a * 4
+        const area = (a, b) => a * b
+        let square = leerNombre("Input the value of the side of a square")
+        let recBase = leerNombre("Input the base of the rectangle")
+        let recHeight = leerNombre("Input the height of the rectangle")
+        let areaRec = area(recBase, recHeight)
+        alert(`The perimeter of the square is ${square}.
+And the area of the rectangle is ${areaRec}`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const leerNumero = function(msg) {
+            let number;
+            let repita;
+            do {
+                repita = false
+                number = Number(prompt(msg))
+                if (isNaN(number)) {
+                    alert("Input the number correctly")
+                    repita = true
+                }
+            } while (repita)
+            return number;
+        }
+
+        let userInput;
+        let amount = 0;
+        let sum = 0;
+        let maxNum = 0;
+        let minNum = 0;
+        do {
+            userInput = leerNumero("Input a number (Negative to stop)")
+            if (userInput !== null) {
+                number = userInput
+                console.trace(number)
+                if (number < 0) {
+                    break;
+                }
+                else if (number > maxNum) {
+                    maxNum = number
+                }
+                else if (number < minNum) {
+                    minNum = number
+                }
+                sum += number
+                amount++
+            }
+        } while (userInput !== null)
+        const ave = (s, a) => s / a;
+        let average = ave(sum, amount)
+
+        alert(`The sum of the values: ${sum}\nThe average of the values: ${average}\nThe amount of values entered: ${amount}\nThe highest value: ${maxNum}\nThe smallest value: ${minNum}`)
+    </script>
+</body>
+</html>

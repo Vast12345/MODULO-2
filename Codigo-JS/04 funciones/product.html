@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const leerText = function(msg) {
+            let nombre;
+            let repita;
+            do {
+                repita = false
+                nombre = prompt(msg)
+                if (!isNaN(nombre)) {
+                    alert("Ingrese el nombre correctamente")
+                    repita = true
+                }
+            } while (repita)
+            return nombre;
+        }
+        const leerNumero = function(msg) {
+            let number;
+            let repita;
+            do {
+                repita = false
+                number = Number(prompt(msg))
+                if (isNaN(number) || number < 1) {
+                    alert("Ingrese el precio correctamente")
+                    repita = true
+                }
+            } while (repita)
+            return number;
+        }
+        const calculation = (p, a) => p * a;
+        
+        let name = leerText("Input the name of the product")
+        let price = leerNumero("Input the price of the product")
+        let amount = leerNumero("Input the amount of product")
+
+        let total = calculation(price, amount)
+        console.log(total)
+        
+    </script>
+</body>
+</html>
