@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const leerText = function(msg) {
+            let nombre;
+            let repita;
+            do {
+                repita = false
+                nombre = prompt(msg)
+                if (!isNaN(nombre)) {
+                    alert("Ingrese el nombre correctamente")
+                    repita = true
+                }
+            } while (repita)
+            return nombre;
+        }
+        const leerNumero = function(msg) {
+            let number;
+            let repita;
+            do {
+                repita = false
+                number = Number(prompt(msg))
+                if (isNaN(number) || number < 1) {
+                    alert("Ingrese el precio correctamente")
+                    repita = true
+                }
+            } while (repita)
+            return number;
+        }
+
+        function repeatNumber(inputNum, inputRep) {
+            let array = []
+            const numString = inputNum.toString();
+            const repeatedNumber = numString.repeat(inputRep);
+            array = repeatedNumber.split('').map(Number);
+            return array;
+        }
+
+        const superDigit = function(n, k) {
+            let numArray = repeatNumber(n, k);
+            let sum;
+            do {
+                sum = numArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+                numArray = repeatNumber(sum, 1);
+            } while(sum >= 10);
+
+            return sum;
+        };
+        
+
+        let number = leerNumero("Input a number")
+        let repetitions = leerNumero("Input the amount of times you wish the number to be repeated")
+        let result = superDigit(number, repetitions)
+        alert(`The super digit is: ${result}`)
+    </script>
+</body>
+</html>
