@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const checkInString = function(text, term) {
+            term = term.toLowerCase()
+            let array = text.split(" ")
+            let word = array.filter(function(e) {
+                if (e === term) {
+                    return true
+                } else return false
+            })
+        }
+        let text = "This is a sentence"
+        let term = prompt("Input a word to see if it is inside the text")
+
+        let check = checkInString(text, term)
+        alert(check)
+    </script>
+</body>
+</html>

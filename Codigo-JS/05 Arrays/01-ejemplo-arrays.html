@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let campers = ["Yulieth", "Hader", "Lorenzo"]
+
+        let frutas = new Array("Pera", "Manzana", "Banana", "Mandarina")
+
+        let marcas = new Array(5)
+        console.log(marcas)
+        marcas[0] = "Audi";
+        marcas[1] = "Lamborghini"
+        marcas.push("Ford Fiesta")
+        marcas.unshift("Twingo")
+
+        console.log(marcas[marcas.length-1])
+        delete marcas[2]
+        console.log(marcas.slice(0, 2))
+        for (let i=0; i < frutas.length; i++) {
+            console.log(frutas[i])
+        }
+        frutas.pop()
+        frutas.shift()
+        // let removedElements = marcas.splice(2, 3) --> Completely remove
+
+        console.log(frutas.concat(marcas))
+        console.log(frutas.join(", ")) // "Pera, Manzana"
+        console.log(frutas.indexOf("Manzana")) // --> 1
+    </script>
+</body>
+</html>
