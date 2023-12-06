@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function findText(texto) {
+            let array = texto.split(" ")
+            const sentence = new Map([])
+            array.forEach(element => {
+                if (array.has(element)) {
+                    sentence.set(element, sentence.get(element) + 1)
+                } else {
+                    mpals.set(element, 1)
+                }
+            });
+            return sentence
+        }
+            
+        text = prompt("Input a sentence")
+        let dictionary = findText(text)
+        console.log(dictionary)
+    </script>
+</body>
+</html>

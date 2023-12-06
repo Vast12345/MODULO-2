@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Pagar</th>
+            </tr>
+        </thead>
+        <tbody id="tdatos"></tbody>
+    </table>
+    <br><br>
+    <button onclick="addFact()">Agregar</button>
+    <button onclick="rmFact()">Cancelar</button>
+
+    <script>
+        let facturaMap = new Map()
+
+        function addFact() {
+            addFactura(facturaMap)
+        }
+
+        function rmFact() {
+            removeFactura(facturaMap)
+        }
+
+        const leerNumero = function(msg) {
+            let number;
+            let repita;
+            do {
+                repita = false
+                number = Number(prompt(msg))
+                if (isNaN(number) || number < 1) {
+                    alert("Ingrese el numero correctamente")
+                    repita = true
+                }
+            } while (repita)
+            return number;
+        }
+        function arrayToMap(array) {
+            let map = new Map([])
+            map.set(array[0], array[1])
+            return map
+        }
+        function addFactura(fmap) {
+            let numfact = leerNumero("Ingrese el numero de la factura")
+            let costfact = leerNumero("Ingrese el coste de la factura")
+
+            fmap.set(numfact, costfact)
+            // let array = []
+            // array.push(numfact)
+            // array.push(costfact)
+            // fmap = arrayToMap(array)
+            console.log(fmap)
+            fmap.forEach((v, k) => {
+                document.getElementById("tdatos").innerHTML = `<tr><th>${k}</th><th>${v}</th></tr>`
+            })
+        }
+
+        function removeFactura(fmap) {
+            console.log(fmap)
+        }
+    </script>
+</body>
+</html>
