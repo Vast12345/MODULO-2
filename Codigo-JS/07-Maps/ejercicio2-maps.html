@@ -4,32 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            color: white;
+        }
+        .container-container {
+            margin-top: 10rem;
+            padding: 10rem;
+            background-image: linear-gradient(rgb(174, 17, 49), black);
+            border-radius: 20px;
+        }
+        .container {
+            width: 50vw;
+            background-image: transparent;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 0 15px rgba(135, 135, 135, .1), 0 0 18px 3px rgba(0, 0, 0, .3);
+        }
+        table {
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+        }
+        td {
+            font-size: x-large;
+        }
+        button {
+            padding: 1rem;
+            flex-grow: 1;
+            border: none;
+            background-color: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 500ms ease-in-out;
+            color: white;
+        }
+        button:hover {
+            background-color: rgba(174, 17, 49, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Numero</th>
-                <th>Pagar</th>
-            </tr>
-        </thead>
-        <tbody id="tdatos"></tbody>
-    </table>
-    <br><br>
-    <button onclick="addFact()">Agregar</button>
-    <button onclick="rmFact()">Cancelar</button>
-
+    <div class="container-container">
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Pagar</th>
+                    </tr>
+                </thead>
+                <tbody id="tdatos"></tbody>
+            </table>
+            <br><br>
+            <button onclick="addFact()">Agregar</button>
+            <button onclick="rmFact()">Borrar</button>
+        </div>
+    </div>
     <script>
         let facturaMap = new Map()
 
         function addFact() {
-            addFactura(facturaMap)
+            let numfact = leerNumero("Ingrese el numero de la factura")
+            let costfact = leerNumero("Ingrese el coste de la factura")
+
+            facturaMap.set(numfact, costfact)
+            updateTable()
+            console.log(facturaMap)
         }
 
         function rmFact() {
-            removeFactura(facturaMap)
+            let numfact = leerNumero("Ingrese el numero de la factura que tu quieres borrar")
+            if (facturaMap.has(numfact)) {
+                facturaMap.delete(numfact)
+                updateTable()
+                console.log(facturaMap)
+            } else alert("Ese factura no existe")
         }
+        function updateTable() {
+            let tableBody = document.getElementById("tdatos");
+            tableBody.innerHTML = ""; 
 
+            facturaMap.forEach((v, k) => {
+                let row = tableBody.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+
+                cell1.innerHTML = k;
+                cell2.innerHTML = v;
+            });
+        }
         const leerNumero = function(msg) {
             let number;
             let repita;
@@ -42,29 +118,6 @@
                 }
             } while (repita)
             return number;
-        }
-        function arrayToMap(array) {
-            let map = new Map([])
-            map.set(array[0], array[1])
-            return map
-        }
-        function addFactura(fmap) {
-            let numfact = leerNumero("Ingrese el numero de la factura")
-            let costfact = leerNumero("Ingrese el coste de la factura")
-
-            fmap.set(numfact, costfact)
-            // let array = []
-            // array.push(numfact)
-            // array.push(costfact)
-            // fmap = arrayToMap(array)
-            console.log(fmap)
-            fmap.forEach((v, k) => {
-                document.getElementById("tdatos").innerHTML = `<tr><th>${k}</th><th>${v}</th></tr>`
-            })
-        }
-
-        function removeFactura(fmap) {
-            console.log(fmap)
         }
     </script>
 </body>
