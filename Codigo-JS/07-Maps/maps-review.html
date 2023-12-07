@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function wordsPref() {
+            let mapa = new Map()
+            let array = []
+            let sentence = prompt("Input a random amount of words seperated by a space")
+            let prefix = prompt("Input a prefix")
+
+            array.push()
+
+            mapa.set(prefix,sentence.split(" "))
+            
+            let words = []
+            var a = 0;
+            mapa.forEach((v, k) => {
+                a =  v.reduce((accumulator, present) => {
+                    let reg = new RegExp("/^" + k +"/");
+                    if(present.match(reg)){
+                        return present.match(reg).length + accumulator;
+                    }
+                    else{
+                        return ;
+                    }
+                },0)
+            })
+            console.log(a);
+        }
+        wordsPref()
+    </script>
+</body>
+</html>
