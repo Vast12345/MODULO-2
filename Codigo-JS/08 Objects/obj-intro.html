@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const persona = {
+            nombre: 'Dani',
+            edad: 30,
+            esTrabajador: true,
+            familia: ['Miguel', 'Maria'],
+            direccion: {
+                calle: 'Calle de la piruelta',
+                numero: 13,
+                ciudad: 'Barcelona'
+            },
+            caminar: function() {
+                console.log(this.nombre + ' Esta caminando');
+            }
+        };
+
+        console.log(persona);
+        console.log(persona.nombre); // Dani
+        persona.caminar(); // Estoy camindando
+
+        persona.nombre = "Daniela";
+        console.log(persona.nombre);
+
+        const empleado = {
+            nombre: "ana",
+            appellido: "Gomez",
+            identificacion: 7890,
+            nombreCompleto: function() {
+                return this.nombre + " " + this .appellido
+            }
+        };
+
+        const cadPersona = JSON.stringify(persona)
+        console.log(cadPersona)
+
+        const objPer = JSON.parse(cadPersona);
+        console.log(objPer);
+    </script>
+</body>
+</html>
