@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const obj = {
+            "empleados": [
+                {
+                    "nombre": "Juan Perez",
+                    "apellido": "Lopez",
+                    nombreCompleto: function() {
+                        return this.nombre + " " + this.apellido
+                    }
+                },
+                {
+                    "nombre": "Ana",
+                    "apellido": "Gonzales",
+                    nombreCompleto: function() {
+                        return this.nombre + " " + this.apellido
+                    }
+                },
+                {
+                    "nombre": "Pedro",
+                    "apellido": "Sanchez",
+                    nombreCompleto: function() {
+                        return this.nombre + " " + this.apellido
+                    }
+                },
+            ]
+        }
+
+        console.log(obj.empleados[2].apellido) // Sanchez
+        console.log(obj.empleados[2].nombreCompleto())
+    </script>
+</body>
+</html>

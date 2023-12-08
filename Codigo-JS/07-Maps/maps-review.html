@@ -13,12 +13,8 @@
             let array = []
             let sentence = prompt("Input a random amount of words seperated by a space")
             let prefix = prompt("Input a prefix")
-
-            array.push()
-
-            mapa.set(prefix,sentence.split(" "))
             
-            let words = []
+            mapa.set(prefix,sentence.split(" "))
             var a = 0;
             mapa.forEach((v, k) => {
                 a =  v.reduce((accumulator, present) => {
