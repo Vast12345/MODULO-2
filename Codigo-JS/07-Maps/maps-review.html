@@ -6,30 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="result"><div>
+
     <script>
-        function wordsPref() {
-            let mapa = new Map()
+        let mapa = new Map()
+        function wordsPref(mapa) {
             let array = []
             let sentence = prompt("Input a random amount of words seperated by a space")
             let prefix = prompt("Input a prefix")
-            
-            mapa.set(prefix,sentence.split(" "))
-            var a = 0;
+
+            mapa.set(prefix, sentence.split(" "))
             mapa.forEach((v, k) => {
-                a =  v.reduce((accumulator, present) => {
-                    let reg = new RegExp("/^" + k +"/");
-                    if(present.match(reg)){
-                        return present.match(reg).length + accumulator;
+                array = v.reduce((accumulator, word) => {
+                    if(word.startsWith(k)){
+                        accumulator.push(word)
                     }
-                    else{
-                        return ;
-                    }
-                },0)
-            })
-            console.log(a);
+                    return accumulator
+                }, array);
+            });
+            alert(`The amount of words with a prefix of ${prefix} is ${array.length}. The word(s) are: ${array.join(", ")}`)
+            
+            const resultElement = document.getElementById("result");
+            resultElement.innerHTML = `The amount of words with a prefix of "${prefix}" is ${array.length}. The word(s) are: ${array.join(", ")}`;
         }
-        wordsPref()
+        wordsPref(mapa);
     </script>
 </body>
 </html>
