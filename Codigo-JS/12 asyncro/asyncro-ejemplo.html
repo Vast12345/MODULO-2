@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // console.log("Inicio de la tarea ");
+
+        // setTimeout(function() {
+        //     console.log("La tarea asincrona completada 2 segs desupes");
+        // }, 2000);
+        // console.log("Tarea principal continua")
+
+        const myNumbers = [4, 1, -20, -7, 5, 9, -6];
+
+        // Call removeNeg with a callback
+        const posNumbers = removeNeg(myNumbers, (x) => x >= 0);
+        console.log(posNumbers);
+
+        // Keep only positive numbers
+        function removeNeg(numbers, callback) {
+            const myArray = [];
+            for (const x of numbers) {
+                if (callback(x)) {
+                    myArray.push(x);
+                }
+            }
+            return myArray;
+        }
+    </script>
+</body>
+</html>

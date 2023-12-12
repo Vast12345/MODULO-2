@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // function operar(arr, operacion) {
+        //     let resultado = 0;
+        //     for (let num of arr) {
+        //         resultado = operacion(resultado, num);
+        //     }
+        //     return resultado;
+        // }
+        // function suma(a, b) {
+        //     return a + b;
+        // }
+        // function producto(a, b) {
+        //     return a * b;
+        // }
+
+        // const numeros = [1, 2, 3, 4, 5];
+        // const sumaTotal = operar(numeros, suma);
+        // const productoTotal = operar(numeros, producto);
+
+        function multiplicador(factor) {
+            return function (numero) {
+                return numero * factor;
+            };
+        }
+
+        const duplicar = multiplicador(2);
+        const triplicar = multiplicador(3);
+
+        console.log(duplicar(5));
+        console.log(triplicar(5));
+    </script>
+</body>
+</html>
