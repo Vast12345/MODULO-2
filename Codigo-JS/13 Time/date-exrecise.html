@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="datosPact">
+        <label for="datepact">Input la pactada de un libro</label>
+        <input type="datetime" name="datepact" id="datepact">
+        <label for="datereal">Input la fecha real de la entrega</label>
+        <input type="datetime" name="datereal" id="datereal">
+    </form>
+    <input type="submit" value="Submit valores" onclick="thing()">
+
+
+    <script>
+        function thing() {
+            const form = document.getElementById("datosPact");
+
+
+            const formPactData = new FormData(form);
+            console.log(formPactData)
+
+            let something = []
+            for (const elem of formPactData) {
+                let time = new Date(elem)
+                something.push(time)
+            }
+            console.log(something)
+
+
+            // const fecPact = new Date(dateReal);
+            // const fecReal = new Date(dateReal);
+
+            // const diff = fecReal.getDate() - fecPact.getDate();
+
+            // if (diff <= 3) {
+            //     alert("Tu tienes una cobra multa de $7.000 pesos");
+            // } else {
+            //     alert("Tu tienes una cobra multa de $10.000 sancion de prestamo por 6 meses");
+            // }
+
+        }
+
+    </script>
+</body>
+</html>

@@ -13,15 +13,15 @@
         <label for="edad">Edad: </label>
         <input type="number" name="edad" id="edad">
         <!-- <button onclick="capturarForm()">Enviar</button> -->
-        <input type="submit" value="Enviar" onclick="capturarForm()">
     </form>
+    
 
     <script>
         function capturarForm() {
             // const form = document.querySelector("form")
             const form = document.getElementById("datos")
             const formData = new FormData(form)
-
+            console.log(formData)
             for (const elem of formData) {
                 if (elem[1] >= 17) {
                     alert("Puedes entrar a Campus")
