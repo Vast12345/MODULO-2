@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function doAwait(iterations) {
+            const numbers = [];
+
+            for (let i = 0; i < iterations; i++) {
+                const number = 1 + Math.floor(Math.random() * 6);
+                numbers.push(number);
+                if (number === 6) {
+                    const obj = {
+                        error: true,
+                        iter: i,
+                        value: null
+                    };
+                    throw new Error('Se ha secado un 6. ' + JSON.stringify(obj));
+                }
+            }
+            return {
+                error: false,
+                value: numbers
+            }
+        }
+
+        (async function () {
+            try {
+                let numbers = await doAwait(10);
+                console.log(numbers)
+            } catch (error) {
+                console.error(error.message)
+            }
+        })()
+    </script>
+</body>
+</html>

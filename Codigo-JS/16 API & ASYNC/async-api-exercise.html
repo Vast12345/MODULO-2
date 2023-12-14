@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>IMAGEN FRONTAL</th>
+            </tr>
+        </thead>
+        <tbody id="tdatos"></tbody>
+    </table>
+
+    <script>
+        async function getNombre() {
+            for (let i = 1; i <= 100; i++) {
+                const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+
+                const respuesta = await fetch(url);
+
+                if (!respuesta.ok)
+                    throw new Error("Error. Pokemon no existe")
+                const json = await respuesta.json();
+
+                let tableBody = document.getElementById("tdatos");
+
+                let row = tableBody.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+
+                cell1.innerHTML = json.id;
+                cell2.innerHTML = json.name;
+                // cell3.innerHTML = json.sprites.front_shiny;
+                cell3.innerHTML = `<img src="${json.sprites.front_shiny}" alt="">`
+            }
+        }
+
+
+        (async function () {
+            try {
+                let pokeData = await getNombre();
+            } catch (error) {
+                console.log(error.message)
+            }
+        })()
+    </script>
+</body>
+
+</html>

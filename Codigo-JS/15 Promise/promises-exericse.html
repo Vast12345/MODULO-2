@@ -53,9 +53,20 @@
             })
         }
 
-        getDatos()
-            .then((datos) => { console.table(datos)})
-            .catch((err) => { console.error(err.message)})
+        // getDatos()
+        //     .then((datos) => { console.table(datos)})
+        //     .catch((err) => { console.error(err.message)})
+        
+        //4 Async Await
+        async function obtenerDatos() {
+            try {
+                const datosObtenidos = await getDatos();
+                console.table(datosObtenidos);
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+        obtenerDatos();
     </script>
 </body>
 </html>

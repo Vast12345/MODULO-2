@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // function getNombre(nomuso) {
+        //     const url = `https://api.github.com/users/${nomuso}`;
+
+        //     // Fetch es una promesa
+        //     fetch(url)
+        //         .then(respuesta => respuesta.json())
+        //         .then(json => {
+        //             console.log(json.name);
+        //         })
+        //         .catch((err) => console.error(err.message));
+        // }
+        // getNombre("Vast12345");
+
+        //2. ASYNC - AWAIT
+
+        // --------------- POKE ----------
+
+        // async function getNombre(nompoke) {
+        //     const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
+
+        //     const respuesta = await fetch(url);
+        //     const json = await respuesta.json();
+
+        //     console.log(json.sprites.front_default);
+        // }
+        // getNombre("metagross");
+
+        //2.1 ASYNC - AWAIT haciendo un return
+        async function getNombre(nompoke) {
+            const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
+
+            const respuesta = await fetch(url);
+            
+            // si la resupesta no fue exitosa
+            if (!respuesta.ok)
+                throw new Error("Error. Pokemon no existe")
+            const json = await respuesta.json();
+
+            //retornar el nombre de usuario
+            return json.sprites.front_shiny;
+        }
+
+        // getNombre es una promesa
+        // getNombre('darkrai')
+        //     .then(nombre => console.log(nombre))
+        //     .catch(error => console.error(error.message));
+
+        (async function() {
+            try {
+                let urlImg = await getNombre('arceus');
+                console.log(urlImg);
+
+                urlImg = await getNombre('silly');
+                console.log(urlImg)
+            } catch (error) {
+                console.error(error.message);
+            }
+        })()
+    </script>
+</body>
+</html>
