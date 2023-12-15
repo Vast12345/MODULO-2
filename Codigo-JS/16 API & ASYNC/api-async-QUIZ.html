@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .container {
+            margin: 5rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            height: 50vh;
+            flex-direction: column;
+            border: 1px solid black;
+            padding-bottom: 1rem;
+        }
+
+        .pokemon-container {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        #pokemon-1 {
+            box-shadow: inset 0 0 1px rgba(135, 135, 135, .1), 5px 5px 18px 3px rgba(0, 0, 0, .3);
+        }
+
+        #pokemon-2 {
+            box-shadow: inset 0 0 15px rgba(135, 135, 135, .1), 5px 5px 18px 3px rgba(0, 0, 0, .3);
+        }
+
+        img {
+            width: 100%;
+        }
+
+        button {
+            width: 8rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+            background-color: cadetblue;
+            box-shadow: inset 0 0 15px rgba(135, 135, 135, .1), 5px 5px 18px 3px rgba(0, 0, 0, .3);
+            cursor: pointer;
+        }
+
+        #siguente {
+            background-color: crimson;
+        }
+
+        #pokemon1-choose {
+            background-color: orange;
+            margin-bottom: 1rem;
+            cursor: default;
+        }
+
+        #pokemon2-choose {
+            background-color: lightsteelblue;
+            margin-bottom: 1rem;
+            cursor: default;
+        }
+
+        #pokemon1-winner {
+            background-image: linear-gradient(to right, orange, crimson);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #pokemon2-winner {
+            background-image: linear-gradient(to right, crimson, lightsteelblue);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-container">
+            <p>LISTADO DE POKEMON</p>
+        </div>
+        <div class="pokemon-container">
+            <div class="pokemon1-container">
+                <button id="pokemon1-choose">MI Pokemon</button>
+                <div id="pokemon-1"></div>
+                <table>
+                    <tbody id="tdatos-1"></tbody>
+                </table>
+                <p id="pokemon1-winner"></p>
+            </div>
+            <div class="pokemon2-container">
+                <button id="pokemon2-choose">CPU Pokemon</button>
+                <div id="pokemon-2"></div>
+                <table>
+                    <tbody id="tdatos-2"></tbody>
+                </table>
+                <p id="pokemon2-winner"></p>
+            </div>
+        </div>
+        <button id="siguente" onclick="displayPoke()">Fight</button>
+    </div>
+
+    <script>
+        async function getPoke1() {
+            // if (sum >= 806) {
+            //     throw new Error("Maximum pokemon reached")
+            // }
+            const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber()}`;
+            const respuesta = await fetch(url);
+            const json = await respuesta.json();
+
+            console.log(json)
+
+
+            document.getElementById("pokemon-1").innerHTML = `<img src="${json.sprites.front_shiny}" alt="">`
+
+            let tableBody = document.getElementById("tdatos-1");
+            tableBody.innerHTML = ""
+
+            let row1 = tableBody.insertRow();
+            let cell1 = row1.insertCell(0);
+            let row2 = tableBody.insertRow();
+            let cell2 = row2.insertCell(0);
+            let row3 = tableBody.insertRow();
+            let cell3 = row3.insertCell(0);
+            let row4 = tableBody.insertRow();
+            let cell4 = row4.insertCell(0);
+            let row5 = tableBody.insertRow();
+            let cell5 = row5.insertCell(0);
+            let row6 = tableBody.insertRow();
+            let cell6 = row6.insertCell(0);
+
+            cell1.innerHTML = `${json.stats[0].stat.name}: ${json.stats[0].base_stat}`;
+            cell2.innerHTML = `${json.stats[1].stat.name}: ${json.stats[1].base_stat}`;
+            cell3.innerHTML = `${json.stats[2].stat.name}: ${json.stats[2].base_stat}`;
+            cell4.innerHTML = `${json.stats[3].stat.name}: ${json.stats[3].base_stat}`;
+            cell5.innerHTML = `${json.stats[4].stat.name}: ${json.stats[4].base_stat}`;
+            cell6.innerHTML = `${json.stats[5].stat.name}: ${json.stats[5].base_stat}`;
+            return [json.stats[0].base_stat, json.stats[1].base_stat, json.stats[2].base_stat, json.stats[3].base_stat, json.stats[4].base_stat, json.stats[5].base_stat]
+        }
+        async function getPoke2() {
+            // if (sum >= 806) {
+            //     throw new Error("Maximum pokemon reached")
+            // }
+            const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber()}`;
+            const respuesta = await fetch(url);
+            const json = await respuesta.json();
+
+            console.log(json)
+
+
+            document.getElementById("pokemon-2").innerHTML = `<img src="${json.sprites.front_shiny}" alt="">`
+
+            let tableBody = document.getElementById("tdatos-2");
+            tableBody.innerHTML = ""
+
+            let row1 = tableBody.insertRow();
+            let cell1 = row1.insertCell(0);
+            let row2 = tableBody.insertRow();
+            let cell2 = row2.insertCell(0);
+            let row3 = tableBody.insertRow();
+            let cell3 = row3.insertCell(0);
+            let row4 = tableBody.insertRow();
+            let cell4 = row4.insertCell(0);
+            let row5 = tableBody.insertRow();
+            let cell5 = row5.insertCell(0);
+            let row6 = tableBody.insertRow();
+            let cell6 = row6.insertCell(0);
+
+            cell1.innerHTML = `${json.stats[0].stat.name}: ${json.stats[0].base_stat}`;
+            cell2.innerHTML = `${json.stats[1].stat.name}: ${json.stats[1].base_stat}`;
+            cell3.innerHTML = `${json.stats[2].stat.name}: ${json.stats[2].base_stat}`;
+            cell4.innerHTML = `${json.stats[3].stat.name}: ${json.stats[3].base_stat}`;
+            cell5.innerHTML = `${json.stats[4].stat.name}: ${json.stats[4].base_stat}`;
+            cell6.innerHTML = `${json.stats[5].stat.name}: ${json.stats[5].base_stat}`;
+            return [json.stats[0].base_stat, json.stats[1].base_stat, json.stats[2].base_stat, json.stats[3].base_stat, json.stats[4].base_stat, json.stats[5].base_stat]
+        }
+        async function displayPoke() {
+            try {
+                document.getElementById("pokemon1-winner").innerHTML = "";
+                document.getElementById("pokemon2-winner").innerHTML = "";
+                let pokeData1 = await getPoke1();
+                let pokeData2 = await getPoke2();
+                pokeFight(pokeData1, pokeData2);
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+        function pokeFight(poke1, poke2) {
+            setTimeout(() => {
+                let turn = true;
+                if (poke1[5] > poke2[5]) {
+                    let varTurn = poke1[5] - poke2[5]
+                    if (varTurn < 0) {
+                        varTurn *= -1
+                    }
+                    for (let i = 0; i <= varTurn; i++) {
+                        poke2[0] = hitEquation(poke2[0], poke2[2], poke2[5], poke1[1])
+                    }
+                    turn = false
+                }
+                if (poke2[5] > poke1[5]) {
+                    let varTurn = poke1[5] - poke2[5];
+                    if (varTurn < 0) {
+                        varTurn *= -1
+                    }
+                    for (let i = 0; i <= varTurn; i++) {
+                        poke1[0] = hitEquation(poke1[0], poke1[2], poke1[5], poke2[1])
+                    }
+                    turn = true
+                }
+                console.log(poke1[0], poke1[1], poke1[2], poke1[3], poke1[4], poke1[5])
+
+                if (poke1[0] <= 0) {
+                    document.getElementById("pokemon2-winner").innerHTML = "Winner"
+                    return
+                } else if (poke2[0] <= 0) {
+                    document.getElementById("pokemon1-winner").innerHTML = "Winner"
+                    return
+                }
+                setTimeout(() => {
+                    while (true) {
+                        if (poke1[0] <= 0) {
+                            document.getElementById("pokemon2-winner").innerHTML = "Winner"
+                            break
+                        } else if (poke2[0] <= 0) {
+                            document.getElementById("pokemon1-winner").innerHTML = "Winner"
+                            break
+                        }
+                        if (turn === true) {
+                            let varTurn = poke1[5] - poke2[5];
+                            if (varTurn < 0) {
+                                varTurn *= -1
+                            }
+                            for (let i = 0; i <= varTurn; i++) {
+                                poke2[0] = hitEquation(poke2[0], poke2[2], poke2[5], poke1[1])
+                            }
+                            turn = false
+                        }
+                        else if (turn === false) {
+                            let varTurn = poke2[5] - poke1[5];
+                            if (varTurn < 0) {
+                                varTurn *= -1
+                            }
+                            for (let i = 0; i <= varTurn; i++) {
+                                poke1[0] = hitEquation(poke1[0], poke1[2], poke1[5], poke2[1])
+                            }
+                            turn = true
+                        }
+                    }
+                }, 5000)
+            }, 2000)
+
+
+        }
+
+        function hitEquation(hp, defense, speed, attack) {
+            result = (defense * (1 + (speed / 100)) - attack)
+            if (result < 0) {
+                return hp = hp + result
+            } else {
+                return hp = hp - result
+            }
+        }
+
+        function randomNumber() {
+            let min = Math.ceil(1)
+            let max = Math.floor(806)
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+    </script>
+</body>
+
+</html>
