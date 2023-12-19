@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid orange;
+        }
+        input, button {
+            margin: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input id="celc" required>
+        <input id="faren" required>
+        <button type="button" onclick="calculateCelc()">Calculate Celcius</button>
+        <button type="button" onclick="calcularFaren()">Calculate Farenheit</button>
+    </div>
+
+    <script>
+        function calculateCelc() {
+            let celc = document.getElementById("celc").value;
+
+            let result = (celc * 1.8) + 32
+            document.getElementById("faren").value = result
+        }
+        const calcularFaren = () => {
+            let faren = document.getElementById("faren").value;
+            if (isNaN.faren) {
+                faren = 0;
+            }
+
+            let result = (faren - 32) / 1.8;
+            document.getElementById("celc").value = result
+        }
+    </script>
+</body>
+</html>

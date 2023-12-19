@@ -1,0 +1,67 @@
+<div id="miElemento" class="clase1 clase2">Contenido del Elemento</div>
+
+<button onclick="contarClases()">Cantidad de clases</button>
+<br><br>
+<button onclick="agregarClase()">Agregar Clase</button>
+<br><br>
+<button onclick="classNPos()">clase en la 1ra posición</button>
+<br><br>
+<button onclick="existeClase()">Validar si una clase existe</button>
+<br><br>
+<button onclick="removerClase()">Remover Clases</button>
+<br><br>
+<button onclick="alternarClase()">alternar la presencia de una Clase</button>
+<br><br>
+<button onclick="replaceClase()">Reemplazar clase </button>
+<script>
+    const agregarClase = () => {
+        const elemento = document.getElementById('miElemento');
+
+        elemento.classList.add('nuevaClase');
+    }
+
+    const contarClases = () => {
+        const elemento = document.getElementById('miElemento');
+
+        const cant = elemento.classList.length;
+        alert("Cantidad de clases: " + cant.toString())
+    }
+
+    const classNPos = () => {
+        const elemento = document.getElementById('miElemento');
+
+        const claseEnPosicion1 = elemento.classList.item(1);
+        alert('Clase en la posición 1:' + claseEnPosicion1)
+    }
+
+    const existeClase = () => {
+        const elemento = document.getElementById('miElemento');
+
+        const existeClase = elemento.classList.contains("nuevaClase");
+        alert('Existe la clase :' + existeClase);
+
+    }
+
+    const removerClase = () => {
+        const elemento = document.getElementById('miElemento');
+
+        const rta = elemento.classList.remove('clase2', 'nuevaClase');
+        alert('respuesta de eliminar :' + rta);
+
+    }
+
+    const alternarClase = () => {
+        const elemento = document.getElementById('miElemento');
+
+        const rta = elemento.classList.toggle('nuevaClase');
+        alert('respuesta de alternar clase :' + rta);
+
+    }
+
+    const replaceClase = () => {
+        const elemento = document.getElementById('miElemento');
+
+        const rta = elemento.classList.replace('nuevaClase', 'claseReemplazo');
+        alert('Respuesta de reemplazar clase: ' + rta);
+    }
+</script>

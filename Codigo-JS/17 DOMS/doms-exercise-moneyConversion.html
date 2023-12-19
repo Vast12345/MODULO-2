@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 15%;
+        }
+        button {
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="euro">Euros:</label>
+        <input name="euro" id="euros">
+        <label for="dolar">Dolares:</label>
+        <input name="dolar" id="dolares">
+        <button type="button" onclick="calcMoney()">Calcular</button>
+    </div>
+
+    <script>
+        async function calcMoney() {
+            const url = 'https://cdn.dinero.today/api/latest.json';
+            const result = await fetch(url);
+            const json = await result.json();
+            console.log(json);
+
+            euroNum = Number(document.getElementById("euros").value)
+            let euro = euroNum * json.rates['EUR'];
+            euro = euroNum - euro
+            console.log(euro)
+            let dollar = euroNum + euro;
+            
+            document.getElementById("dolares").value = dollar;
+        }
+    </script>
+
+</body>
+</html>
