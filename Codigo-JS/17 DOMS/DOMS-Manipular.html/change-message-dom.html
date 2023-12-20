@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="parent">
+            <p>Hola todos</p>
+            <div class="message">Hola syo camper</div>
+        </div>
+    </div>
+
+    <input type="text" id="new-message">
+
+    <button id="change-message" onclick="cambiarMensaje()">Cambiar Mensaje</button>
+
+    <button onclick="obtenerDiv()">Obtener nombre de elemtno div</button>
+
+    <button onclick="innerDiv()">Inner Div()</button>
+
+    <button onclick="outerDiv()">Outer Div</button>
+    <script>
+        function cambiarMensaje() {
+            const messageElement = document.querySelector(".message");
+            const newMessage = document.getElementById("new-message").value;
+
+            messageElement.textContent = newMessage;
+        }
+
+        function obtenerDiv() {
+            const element = document.querySelector("div");
+            alert(element.nodeName);
+        }
+
+        function innerDiv() {
+            const element = document.querySelector(".container");
+            alert(element.innerHTML)
+        }
+
+        function outerDiv() {
+            const element = document.querySelector(".container");
+            alert(element.outerHTML);
+        }
+
+        
+    </script>
+</body>
+
+</html>

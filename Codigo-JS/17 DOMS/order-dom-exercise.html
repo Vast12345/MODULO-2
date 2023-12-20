@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            background-color: dodgerblue;
+            color: white;
+            font-size: x-small;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ordenar arrays de Cadenas</h1>
+            <hr>
+            <p>Ingrese nombres en la caja de texto de abajo y ordene este listado el cual apareceran en el area textbox</p>    
+        </div>
+        <div class="name-contianer">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name">
+            <button onclick="addName()">Agregar y ordenar nombre</button>
+        </div>
+        <div class="text-container">
+            <h1>Nombres ordenados</h1>
+            <hr>
+            <div class="area-container">
+                <textarea name="name-area" id="name-area" cols="30" rows="10" placeholder="Aqui apareceran los nombres ordenados"></textarea>
+                <button onclick="erase()">Limpiar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let array = []
+        function addName() {
+            const name = document.getElementById("name").value;
+            array.push(name + '\n')
+            array.sort();
+            document.getElementById("name-area").value = array
+        }
+
+        function erase() {
+            array = []
+            console.log(array)
+            document.getElementById("name-area").value = array
+        }
+    </script>
+</body>
+</html>
