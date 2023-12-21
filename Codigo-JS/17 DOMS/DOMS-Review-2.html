@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+         * {
+            box-sizing: border-box;
+         }
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            border: 1px solid black;
+            align-items: start;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -19,12 +31,38 @@
         </select>
         <br>
         <label for="dimensions">Seleccione unas dimensiones para la caja:</label>
-        <input type="radio" name="rbt" id="rbt" value="Diminutas">
-        <input type="radio" name="rbt" id="">
+        <div class="dimi">
+            <input type="radio" name="dimi" id="rbt" value="Diminutas">
+            <label for="dimi">Diminutas</label>
+        </div>
+        <div class="medi">
+            <input type="radio" name="med" id="rbt" value="Medianas">
+            <label for="med">Medianes</label>
+        </div>
+        <div class="gran">
+            <input type="radio" name="gran" id="rbt" value="Grandes">
+            <label for="gran">Grandes</label>
+        </div>
+        <br>
+        <label for="text-box">Comentarios</label>
+        <textarea name="text-box" id="text-box" placeholder="Pone tu comentario"></textarea>
+        <br>
+        <button onclick="sendInfo()">Enviar</button>
     </div>
 
     <script>
+        function sendInfo() {
+            const name = document.querySelector("#nombre").value;
+            const material = document.querySelector("#material").value;
+            const dimension = document.querySelector('[id=rbt]:checked').value;
+            const comment = document.querySelector("#text-box").value;
 
+            const div = document.querySelector(".container");
+            const p = document.createElement("p");
+            p.textContent = name + ' ha pedido una caja de ' + material + ' con unas dimensiones ' + dimension + '. ' + comment;
+
+            div.insertAdjacentElement("beforeend", p);
+        }
     </script>
 </body>
 </html>
