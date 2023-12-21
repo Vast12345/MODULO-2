@@ -11,13 +11,41 @@
     <title>Ejercicio 11 - DOM b�sico</title>
     <script type="text/javascript">
         window.onload = function () {
-            const p1 = document.querySelector("body")
+            const body = document.querySelector("body");
+
+            const allLinks = document.querySelectorAll("a");
+            const linkP = document.createElement("div");
+            linkP.textContent = "Amount of enlaces" + allLinks.length;
+            body.insertAdjacentElement("beforeend", linkP);
 
 
-            // Direccion del penultimo enlace
+            const finalLink = allLinks[allLinks.length - 1];
+            body.insertAdjacentElement("beforeend", finalLink);
 
-            // Numero de enlaces que apuntan a http://prueba
 
+            let accu = 0;
+            allLinks.forEach((link) => {
+                debugger
+                if (link.href.includes("https://prueba/")) {
+                    accu++;
+                }
+            });
+
+            const accuP = document.createElement("div");
+            accuP.textContent = "Amount of links with https://prueba/ is " + accu;
+
+            body.insertAdjacentElement("beforeend", accuP)
+
+
+            const paragraphs = document.querySelectorAll("p");
+            const finalPara = paragraphs[paragraphs.length - 1];
+            console.log(finalPara)
+            const enlaces = finalPara.querySelectorAll("a");
+            console.log(enlaces)
+
+            const enlaLength = document.createElement("div");
+            enlaLength.textContent = enlaces.length
+            body.insertAdjacentElement("beforeend", enlaLength);
             // Numero de enlaces del tercer p�rrafo
 
         }
@@ -247,7 +275,8 @@
         nulla vitae tellus. Sed quis eros nec lectus tempor lacinia. Aliquam nec lectus nec neque aliquet dictum. Etiam
         <a href="http://prueba3/">consequat sem quis massa</a>. Donec aliquam euismod diam. In magna massa, mattis id,
         pellentesque sit amet, porta sit amet, lectus. Curabitur posuere. Aliquam in elit. Fusce condimentum, arcu in
-        scelerisque lobortis, ante arcu scelerisque mi, at cursus mi risus sed tellus.</p>
+        scelerisque lobortis, ante arcu scelerisque mi, at cursus mi risus sed tellus.
+    </p>
     <p>Donec sagittis, nibh nec ullamcorper tristique, pede velit feugiat massa, at sollicitudin justo tellus vitae
         justo. Vestibulum aliquet, nulla sit amet imperdiet suscipit, nunc erat laoreet est, a <a
             href="http://prueba/">aliquam leo odio sed sem</a>. Quisque eget eros vehicula diam euismod tristique. Ut

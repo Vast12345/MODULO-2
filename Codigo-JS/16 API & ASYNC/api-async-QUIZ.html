@@ -116,6 +116,31 @@
     </div>
 
     <script>
+        async function rollPoke() {
+            const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber()}`;
+            const respuesta = await fetch(url);
+            const json = await respuesta.json();
+
+            document.getElementById("pokemon-2").innerHTML = `<img src="${json.sprites.front_shiny}" alt="">`
+        }
+
+        async function displaySpecificPokemon() {
+            const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber()}`;
+            const respuesta = await fetch(url);
+            const json = await respuesta.json();
+
+            document.getElementById("pokemon-2").innerHTML = `<img src="${json.sprites.front_shiny}" alt="">`;
+
+            let tableBody = document.getElementById("tdatos-2");
+            tableBody.innerHTML = "";
+
+            for (let i = 0; i < 6; i++) {
+                let row = tableBody.insertRow();
+                let cell = row.insertCell(0);
+                cell.innerHTML = `${json.stats[i].stat.name}: ${json.stats[i].base_stat}`;
+            }
+        }
+
         async function getPoke1() {
             // if (sum >= 806) {
             //     throw new Error("Maximum pokemon reached")
@@ -157,38 +182,38 @@
             // if (sum >= 806) {
             //     throw new Error("Maximum pokemon reached")
             // }
-            const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber()}`;
-            const respuesta = await fetch(url);
-            const json = await respuesta.json();
-
-            console.log(json)
-
-
-            document.getElementById("pokemon-2").innerHTML = `<img src="${json.sprites.front_shiny}" alt="">`
 
             let tableBody = document.getElementById("tdatos-2");
-            tableBody.innerHTML = ""
+            tableBody.innerHTML = "";
 
-            let row1 = tableBody.insertRow();
-            let cell1 = row1.insertCell(0);
-            let row2 = tableBody.insertRow();
-            let cell2 = row2.insertCell(0);
-            let row3 = tableBody.insertRow();
-            let cell3 = row3.insertCell(0);
-            let row4 = tableBody.insertRow();
-            let cell4 = row4.insertCell(0);
-            let row5 = tableBody.insertRow();
-            let cell5 = row5.insertCell(0);
-            let row6 = tableBody.insertRow();
-            let cell6 = row6.insertCell(0);
+            let count = 0;
+            while (count < 10) {
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                rollPoke();
+                count++;
+            }
 
-            cell1.innerHTML = `${json.stats[0].stat.name}: ${json.stats[0].base_stat}`;
-            cell2.innerHTML = `${json.stats[1].stat.name}: ${json.stats[1].base_stat}`;
-            cell3.innerHTML = `${json.stats[2].stat.name}: ${json.stats[2].base_stat}`;
-            cell4.innerHTML = `${json.stats[3].stat.name}: ${json.stats[3].base_stat}`;
-            cell5.innerHTML = `${json.stats[4].stat.name}: ${json.stats[4].base_stat}`;
-            cell6.innerHTML = `${json.stats[5].stat.name}: ${json.stats[5].base_stat}`;
-            return [json.stats[0].base_stat, json.stats[1].base_stat, json.stats[2].base_stat, json.stats[3].base_stat, json.stats[4].base_stat, json.stats[5].base_stat]
+            const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber()}`;
+            debugger
+            return fetch(url)
+                .then(response => response.json())
+                .then(json => {
+                    document.getElementById("pokemon-2").innerHTML = `<img src="${json.sprites.front_shiny}" alt="">`
+                    for (let i = 0; i < 6; i++) {
+                        let row = tableBody.insertRow();
+                        let cell = row.insertCell(0);
+                        cell.innerHTML = `${json.stats[i].stat.name}: ${json.stats[i].base_stat}`;
+                    }
+
+                    return [
+                        json.stats[0].base_stat,
+                        json.stats[1].base_stat,
+                        json.stats[2].base_stat,
+                        json.stats[3].base_stat,
+                        json.stats[4].base_stat,
+                        json.stats[5].base_stat,
+                    ];
+                });
         }
         async function displayPoke() {
             try {
