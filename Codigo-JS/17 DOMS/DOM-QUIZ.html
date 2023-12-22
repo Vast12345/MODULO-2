@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body {
+            box-sizing: border-box;
+            background-color: rgb(235, 235, 235);
+        }
+        .header {
+            margin: 0 auto;
+            padding: 1rem;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid black;
+            border-radius: 10px;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+        }
+        button {
+            cursor: pointer;
+        }
+        .header button {
+            padding: 0.5rem;
+            background-color: dodgerblue;
+            color: white;
+            border-radius: 5px;
+            border-color: orange;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .flashcard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem auto;
+            padding: 1rem;
+            min-width: 300px;
+            border: 1px solid black;
+            box-shadow: inset 0 0 15px rgba(135, 135, 135, .1), 5px 5px 18px 3px rgba(0, 0, 0, .3);
+            background: white;
+        }
+        .createdCards {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .flashcards {
+            display: flex;
+            flex-flow: row wrap;
+            width: 100%;
+        }
+        .flashcards div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+            min-height: 200px;
+            max-height: 500px;
+            margin: 1rem auto;
+            padding: 1rem;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+            gap: 1rem;
+        }
+        .flashDiv{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-height: 50px;
+            border-bottom: 1px dotted orange;
+            padding: 0.5rem;
+        }
+        .flashDiv button {
+            background-color: orange;
+            color: black;
+            border-radius: 5px;
+            padding: 0.3rem;
+            border: 1px solid black;
+        }
+        .responseContainer {
+            width: 100%;
+            background-color: rgb(235, 235, 235);
+            display: flex;
+        }
+        .responseContainer h3 {
+            margin: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1 onclick="test()">Gestion de tarjetas</h1>
+        <div class="nav-options">
+            <button onclick="agregarFlash()">Agregar</button>
+            <button onclick="EliminarFlash()">Eliminar</button>
+        </div>
+    </div>
+    <div class="main">
+        <template id="flashcard">
+            <div class="flashcard">
+                <h2>Crear Flashcard</h2>
+                <div class="question">
+                    <input type="text" name="pregunta" id="pregunta">
+                </div>
+                <div class="response">
+                    <input type="text" name="respuesta" id="respuesta">
+                </div>
+                <div class="buttons">
+                    <button onclick="saveFlash()">Guardar</button>
+                    <button onclick="EliminarFlash()">Cerrar</button>
+                </div>
+            </div>
+        </template>
+        <div class="createdCards"></div>
+        <div class="flashcards">
+
+        </div>
+    </div>
+
+    <script defer>
+        function createCard(question, response) {
+            const main = document.querySelector(".flashcards");
+
+            const flashcard = document.createElement("div");
+            flashcard.innerHTML = `<section class='flashDiv'><button onclick='trashCards()'>Erase</button></section><h3 style="cursor:pointer;" onclick='showCard()'>${question}</h3><br><section class='responseContainer'><template id='responseFlash'><h3 style="color:orange;">${response}</h3></template></section>`;
+
+            main.insertAdjacentElement("beforeend", flashcard);
+        }
+        function agregarFlash() {
+            EliminarFlash()
+            const main = document.querySelector(".createdCards");
+
+            const fragment = document.createDocumentFragment();
+            const template = document.getElementById("flashcard").content;
+            const clone = template.cloneNode(true);
+            console.log(clone)
+            fragment.appendChild(clone);
+
+            main.appendChild(fragment);
+        }
+        function saveFlash() {
+            const question = document.getElementById("pregunta").value;
+            const response = document.getElementById("respuesta").value;
+
+            createCard(question, response);
+        }
+        // function showResponse() {
+        //     const flashcards = document.querySelector(".flashcards");
+
+        //     const fragment = document.createDocumentFragment();
+        //     const template = document.getElementById("responseFlash").content;
+        //     const clone = template.cloneNode(true);
+        //     fragment.appendChild(node);
+        //     flashcards.appendChild(fragment);
+        // }
+        function EliminarFlash() {
+            const main = document.querySelector(".main");
+            main.innerHTML = "<template id='flashcard'><div class='flashcard'><h2>Crear Flashcard</h2><div class='question'><input type='text' name='pregunta' id='pregunta'></div><div class='response'><input type='text' name='respuesta' id='respuesta'></div><div class='buttons'><button onclick='saveFlash()'>Guardar</button><button onclick='EliminarFlash()'>Cerrar</button></div></div></template><div class='createdCards'></div><div class='flashcards'></div>";
+        }
+        function trashCards() {
+            const flashContianer = document.querySelector(".flashcards");
+            flashContianer.innerHTML = ""
+        }
+        function showCard() {
+            const responseContainer = document.querySelector(".responseContainer");
+
+            const fragment = document.createDocumentFragment();
+            const template = document.getElementById("responseFlash").content;
+            const clone = template.cloneNode(true);
+            fragment.appendChild(clone);
+            responseContainer.appendChild(fragment);
+        }
+    </script>
+</body>
+</html>
