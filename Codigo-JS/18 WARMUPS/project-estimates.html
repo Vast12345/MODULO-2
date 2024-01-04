@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function countPairs(n, target) {
+            const array = new Array(n);
+
+            for (let i = 0; i < array.length; i++) {
+                let integer = Number(prompt("Input a number"));
+                array[i] = integer;
+            }
+            console.log(array);
+            let sum = 0;
+            for (let i = 0; i < array.length; i++) {
+                for (let j = i + 1; j < array.length; j++) {
+                    let dif = Math.abs(array[i] - array[j])
+                    if (dif === target) {
+                        sum++
+                    }
+                }
+            }
+            return sum
+        }
+        let amount = Number(prompt("Input size"));
+        let target = Number(prompt("Input target"));
+        
+        let sum = countPairs(amount, target);
+        alert(sum)
+
+    </script>
+</body>
+
+</html> 

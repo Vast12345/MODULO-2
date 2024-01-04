@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // 
+        // diagonalDifference = m => Math.abs(m.reduce((p,c,i) => p += m[i][i] - m[i][m.length - i - 1], 0))
+
+        function primaryDiagonal(matrix) {
+            let sum = 0
+            for(let i = 0; i < matrix.length; i++) {
+                sum += Number(matrix[i][i])
+            }
+            return sum
+        }   
+
+        function secondaryDiagonal(matrix) {
+            let sum = 0;
+            for(let i = 0; i < matrix.length; i++) {
+                sum += Number(matrix[i][matrix.length - i - 1])
+            }
+            return sum
+        }
+        function diagonalDifference(n) {
+            let table = new Array(n);
+            for (let i = 0; i < n; i++) {
+                table[i] = new Array();
+                let row = prompt("Input numbers");
+                row = row.trim();
+                row = row.split(" ");
+
+                table[i] = row;
+            }
+            console.log(table);
+            const primarySum = primaryDiagonal(table);
+            console.log(primarySum);
+            const secondarySum = secondaryDiagonal(table);
+            console.log(secondarySum);
+
+            const absoluteSum = primarySum + secondarySum;
+            console.log(absoluteSum);
+
+
+        }
+        diagonalDifference(3)
+    </script>
+</body>
+</html>

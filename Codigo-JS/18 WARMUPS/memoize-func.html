@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        let actions = ["call", "call", "getCallCount", "call", "getCallCount"];
+        let values = [[2, 2], [2, 2], [], [1, 2], []];
+        let called = []
+        let output = []
+
+        for (let i = 0; i < actions.length; i++) {
+            if (actions[i] === "call") {
+                called.push(values[i]);
+                let current = values[i];
+                sum = current[0] + current[1];
+                output.push(sum);
+
+            }
+            else if (actions[i] === "getCallCount") {
+                called.push(values[i])
+                let sum = 0;
+                let current = values[i];
+                called.forEach(e => {
+                    debugger
+                    console.log(e)
+                    if (e === current) {
+                        sum++;
+                    }
+                })
+                output.push(sum);
+            }
+        }
+        console.log(output);
+    </script>
+</body>
+</html>
