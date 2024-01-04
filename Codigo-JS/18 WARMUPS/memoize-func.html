@@ -24,19 +24,12 @@
             }
             else if (actions[i] === "getCallCount") {
                 called.push(values[i])
-                let sum = 0;
                 let current = values[i];
-                called.forEach(e => {
-                    debugger
-                    console.log(e)
-                    if (e === current) {
-                        sum++;
-                    }
-                })
-                output.push(sum);
+                console.log(current)
+                let count = called.filter(element => JSON.stringify(element) === JSON.stringify(current)).length;
+                output.push(count);
             }
         }
-        console.log(output);
     </script>
 </body>
 </html>
