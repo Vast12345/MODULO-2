@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplos de eventos</h1>
+
+    <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod in saepe iusto neque totam harum. Tenetur dicta ducimus consectetur, fuga id similique, eligendi explicabo hic neque amet laboriosam dolorem atque.</p>
+    <script>
+        let sum = 0;
+        const para = document.getElementById("paragraph")
+        const text = para.textContent;
+
+        function hoverFunction() {
+            sum++
+            para.innerHTML = `The amount of times you hovered is ${sum}`
+        }
+
+        para.addEventListener("mouseover", hoverFunction);
+        para.addEventListener("mouseout", () => para.innerHTML=text);
+    </script>
+</body>
+</html>

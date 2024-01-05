@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="miCampoTexto" value="Contenido inicial">
+
+    <button id="changeColorButton">Change color</button>
+    <script>
+        const letters = "0123456789ABCDEF";
+        const button = document.getElementById("changeColorButton");
+        const changeBackgroundColor = () => 
+            document.body.style.backgroundColor = getRandomColor();
+        const getRandomColor = () => Array(6).fill("").reduce(
+            p => p += letters[Math.floor(Math.random() * 16)]
+            , "#");
+            
+        button.setAttribute('onclick', 'changeBackgroundColor()');
+        
+        let miCampoTexto = document.getElementById("miCampoTexto");
+        miCampoTexto.setAttribute("onkeypress", "changeBackgroundColor()");
+    </script>
+</body>
+</html>

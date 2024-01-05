@@ -9,6 +9,20 @@
 
 
     <script>
+        function memoize(fname, actions, values) {
+            const memoria = new Map();
+            let valor;
+
+            return actions.map((action, i) => (values[i].length) ? 
+                (memoria.get(values[i][0] << 16 | values[i][1]) || 
+                    (valor = funcs[fname](values[i]),
+                        memoria.set(values[i][0] << 16 | values[i][1], valor),
+                        valor) )
+                        : memoria.size
+                        );
+        }
+
+
         let actions = ["call", "call", "getCallCount", "call", "getCallCount"];
         let values = [[2, 2], [2, 2], [], [1, 2], []];
         let called = []
