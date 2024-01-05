@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid orange;
+        }
+
+        input,
+        button {
+            margin: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input id="celc" required>
+        <input id="faren" required>
+        <button id="changeColor">Calcular</button>
+    </div>
+
+    <script>
+        document.addEventListener("input", function () {
+            let celc = document.getElementById("celc");
+            let faren = document.getElementById("faren");
+            let calcButton = document.getElementById("changeColor");
+
+            celc.addEventListener("input", function () {
+                calculateCelc(celc, faren);
+            });
+
+            faren.addEventListener("input", function () {
+                calcularFaren(celc, faren);
+            });
+
+            calcButton.addEventListener("click", function () {  
+                degreeColor(celc, faren);
+            })
+        });
+
+        function calculateCelc(celcius, farenheit) {
+            let celc = celcius.value;
+            if (isNaN.celc) {
+                celc = 0;
+            }
+            let result = (celc * 1.8) + 32;
+            document.getElementById("faren").value = result.toFixed(2);
+            celcius.style.backgroundColor = "#feff64";
+            farenheit.style.backgroundColor = "#9dd2fd";
+        }
+
+        const calcularFaren = (celcius, farenheit) => {
+            let faren = farenheit.value;
+            if (isNaN.faren) {
+                faren = 0;
+            }
+            let result = (faren - 32) / 1.8;
+            document.getElementById("celc").value = result.toFixed(2);
+            farenheit.style.backgroundColor = "#feff64";
+            celcius.style.backgroundColor = "#9dd2fd";
+        }
+
+        function degreeColor(celcius, farenheit) {
+            const celcColor = JSON.stringify(celcius.style.backgroundColor);
+            const farenColor = JSON.stringify(farenheit.style.backgroundColor);
+            console.log(celcColor, farenColor)
+
+            if (celcColor === "rgb(157, 210, 253)") {
+                celcius.style.backgroundColor = "#71ff74";
+            } else if (farenColor === "rgb(157, 210, 253)") {
+                farenheit.style.backgroundColor = "#71ff74";
+            }
+        }
+    </script>
+</body>
+
+</html>

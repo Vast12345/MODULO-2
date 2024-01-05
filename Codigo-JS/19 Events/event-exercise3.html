@@ -22,11 +22,27 @@
     </div>
 
     <script>
-        const body = document.querySelector("body");
+        document.addEventListener("keydown", function(event) {
+            document.querySelectorAll('div').forEach(function(div) {
+                div.classList.add('oculto');
+            })
+            switch (event.key) {
+                case '1':
+                    toggleVisiblity('ficha1');
+                    break;
+                case '2':
+                    toggleVisiblity('ficha2');
+                    break;
+                case '3':
+                    toggleVisiblity('ficha3');
+                    break;
+            }
+        });
 
-        body.addEventListener("input", function() {
-            alert("something has happened")
-        })
+        function toggleVisiblity(div) {
+            let divId = document.getElementById(div);
+            divId.classList.remove('oculto');
+        }
     </script>
 
 </body>
