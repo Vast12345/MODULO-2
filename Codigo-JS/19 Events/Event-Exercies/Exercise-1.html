@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boton {
+            display: block;
+            width: 100px;
+            cursor: pointer;
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="boton1" class="boton">Pulsar aqui</div>
+    <div id="boton2" class="boton">Pulsar aqui</div>
+
+    <script>
+        const button1 = document.getElementById("boton1");
+        const button2 = document.getElementById("boton2");
+
+        button1.addEventListener("click", pulsar);
+        button2.addEventListener("click", pulsar);
+        
+        function pulsar(event) {
+            alert(event.target.id)
+        }
+    </script>
+</body>
+</html>

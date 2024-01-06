@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>No se aceptan digitos</label>
+        <input type="text" id="letras">
+    </form>
+
+    <script>
+        const inputText = document.getElementById("letras");
+
+        inputText.addEventListener("keyup", (event) => {
+            if (!isNaN(event.key)) {
+                document.getElementById("letras").value = '';
+            }
+        });
+    </script>
+</body>
+</html>

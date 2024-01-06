@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #buttonDiv {
+            border: 1px solid tomato;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Haz clic aqui</button>
+    <div id="buttonDiv">Haz clic <b>Aqui</b> para quitar el evento</div>
+
+    <script>
+        const myButton = document.getElementById("myButton");
+        const buttonDiv = document.getElementById("buttonDiv");
+
+        const handleClick = () => {
+            alert("boton cliceado");
+        };
+
+        myButton.addEventListener("click", handleClick);
+
+        buttonDiv.addEventListener("click", () => {
+            alert("has hecho click fuera del boton!");
+
+            myButton.removeEventListener("click", handleClick);
+        });
+    </script>
+</body>
+</html>

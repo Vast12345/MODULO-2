@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border: 1px solid black;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Propiedad de Event Target</h1>
+    <hr>
+    <p>
+        La propiedad de destino devuelve el elemento donde ocurrio el evento.
+        <br><br>
+        La propiedad de destino es de solo lectura.
+    </p>
+    <hr>
+    <h2>Ejemplo</h2>
+    <div>
+        <p>Haga clic en cualquier elemento de este documento para descrubrir que elemento descadenado</p>
+
+        <button>Este es un boton</button>
+
+        <p id="demo"></p>
+    </div>
+
+    <script>
+        document.body.addEventListener("click", myFunction);
+
+        function myFunction(event) {
+            console.log(event.target);
+            let text = event.target.nodeName;
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label>Coordenada X</label>
+        <input id="cX">
+    </div>
+    <div>
+        <label>Coordenada Y</label>
+        <input id="cY">
+    </div>
+
+    <script>
+        document.addEventListener("click", coordinates);
+
+        function coordinates(event) {
+            const inpX = document.getElementById("cX");
+            const inpY = document.getElementById("cY");
+            inpX.value = event.clientX;
+            inpY.value = event.clientY;
+        }
+    </script>
+</body>
+</html>

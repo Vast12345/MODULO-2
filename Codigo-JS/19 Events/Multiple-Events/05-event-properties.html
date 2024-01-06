@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Propiedades del evento</h1>
+    <hr>
+    <p>El objeto event proporciona diversas propiedades que contienen informacion sobre el evento occurido. Alguna de las propiedades mas comunes incluye:</p>
+    <br>
+    <h2>type</h2>
+    <p>
+        La propiedad type es ub objeto de evento indica el tipo de evento que ha occurido. Es una cadena de texto que identifica la naturalexza del evento. Por ejemplo, si estamos escuchando un clic del raton, la propiedad type contendra la cadena "click". De manera similar, ventos como "keydown" representaran pulsaciones de teclas, mientras que "mouseover" indicara que el raton se ha movido sobre un elemento. En resumen, la propiedad type proporciona informacion sobre la categoria especifica de evento que ha sido desencenado.
+    </p>
+    <br>
+    <h2>timeStamp</h2>
+    <p>
+        La propiedad 'timestamp' en un objeto de evento representa la marca de tiempo del momento en que occurio el evento. Esta marca de tiempo se mide en milisegundos desde el inicio del tiempo Unix (1 de enero de 1970, 00:00:00 UTC) La propiedad "timestamp" es util para determinar la secuencia temporal de ventos y puede ser utilizada para calcular la duracion entre eventos o para sincronizar acciones basadas en ele tiempo en una aplicacion.
+    </p>
+    <br>
+    <h2>isTruted</h2>
+    <p>
+        La propiedad 'isTruted' en un objeto de vento de Javascript indica si ele vento fue generado por una accion del usuario real (considerado confiable) o si fue creado mediante scripting o automatizacion (considerado no confiable).
+
+        Cuando 'isTruted' es 'true', significa que ele evento fue generado por una accion del usuario. como hacer clic con eleraton o pulsar una tecla- Por otro lado,m cuando es false, indica que el evento fue creado mediante codigo y no fue desencadenado directamente por una interaccion del usuario.
+
+        Esta propiedad es utiñ para verificar la autencidda de un evento y determinar si proviene de una fuente confiable, lo que puede ser revelente en situaciones de seguridad.
+    </p>
+    <hr>
+    <h2>Ejemplo</h2>
+    <p>
+        Hazclic en eele boton y mira la consola las propiedades del evento.
+    </p>
+    <button>Haz clic</button>
+    <br><br><br><br><br><br><br>
+    <script>
+        const button = document.querySelector("button");
+        button.addEventListener("click", (event) => {
+            const { type, timeStamp, isTrusted } = event;
+            console.log({ type, timeStamp, isTrusted });
+        });
+    </script>
+</body>
+</html>

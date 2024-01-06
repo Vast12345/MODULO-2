@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos nativos</h1>
+    <hr>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda fugit illo ab dolorem tenetur iure enim corrupti. Necessitatibus consectetur, animi quaerat provident odio quae nostrum iure atque. Ratione, laboriosam iste!</p>
+    <p>
+        En el siguente ejemplo, al hacer clin en un boton, se muestra en la consola un objeto <b>Press Button</b>
+    </p>
+    <button>Haz click aqui</button>
+
+    <script>
+        const button = document.querySelector("button");
+        button.addEventListener("click", (event) => {
+            console.log(event);
+        });
+    </script>
+</body>
+</html>
