@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calc-container {
+            margin: 0 auto;
+            display: grid;
+            width: 50%;
+            height: 50vh;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: repeat(6, 1fr);
+        }
+        .calc-item {
+            border: 1px solid gray;
+            padding: 20px;
+            font-size: xx-large;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .calc-item {
+            background-color: lightgray;
+        }
+        .itemCalc {
+            background-color: gray;
+        }
+        .itemResult {
+            grid-area: 1 / 1 / 2 / 5;
+            background-color: rgb(31, 31, 31);
+            color: white;
+            text-align: right;
+            overflow: hidden;
+        }
+        .itemEqual {
+            grid-area: 3 / 4 / -1 / -1;
+            background-color: orange;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc-container">
+        <div class="calc-item itemResult"></div>
+        <button class="calc-item itemCalc itemNum">+</button>
+        <button class="calc-item itemCalc itemNum">-</button>
+        <button class="calc-item itemCalc itemNum">*</button>
+        <button class="calc-item itemCalc itemNum">/</button>
+        <button class="calc-item item7 itemNum">7</button>
+        <button class="calc-item item8 itemNum">8</button>
+        <button class="calc-item item9 itemNum">9</button>
+        <button class="calc-item itemEqual">=</button>
+        <button class="calc-item item4 itemNum">4</button>
+        <button class="calc-item item5 itemNum">5</button>
+        <button class="calc-item item6 itemNum">6</button>
+        <button class="calc-item item1 itemnum">1</button>
+        <button class="calc-item item2 itemNum">2</button>
+        <button class="calc-item item3 itemNum">3</button>
+        <button class="calc-item item0 itemNum">0</button>
+        <button class="calc-item itemDot itemNum">.</button>
+        <button class="calc-item itemClear">C</button>
+
+        <script>
+            const nums = document.querySelectorAll(".itemNum");
+            const pantalla = document.querySelector(".itemResult");
+            const equals = document.querySelector(".itemEqual");
+            const clear = document.querySelector(".itemClear");
+
+            nums.forEach(num =>{
+                num.addEventListener("click", (e) => {
+                    mostrarPantalla(num.textContent);
+                })
+            })
+
+            function mostrarPantalla(num) {
+                pantalla.textContent += num;
+            }
+            equals.addEventListener("click", () => {
+                const calculation = pantalla.textContent;
+                
+            })
+        </script>
+    </div>
+</body>
+</html>
