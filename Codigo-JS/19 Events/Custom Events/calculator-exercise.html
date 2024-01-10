@@ -11,7 +11,7 @@
             width: 50%;
             height: 50vh;
             grid-template-columns: auto auto auto auto;
-            grid-template-rows: repeat(6, 1fr);
+            grid-template-rows: repeat(6, 100px);
         }
         .calc-item {
             border: 1px solid gray;
@@ -56,7 +56,7 @@
         <button class="calc-item item4 itemNum">4</button>
         <button class="calc-item item5 itemNum">5</button>
         <button class="calc-item item6 itemNum">6</button>
-        <button class="calc-item item1 itemnum">1</button>
+        <button class="calc-item item1 itemNum">1</button>
         <button class="calc-item item2 itemNum">2</button>
         <button class="calc-item item3 itemNum">3</button>
         <button class="calc-item item0 itemNum">0</button>
@@ -71,16 +71,21 @@
 
             nums.forEach(num =>{
                 num.addEventListener("click", (e) => {
+                    num.
                     mostrarPantalla(num.textContent);
                 })
-            })
+            });
 
             function mostrarPantalla(num) {
                 pantalla.textContent += num;
-            }
+            };
             equals.addEventListener("click", () => {
                 const calculation = pantalla.textContent;
-                
+                pantalla.textContent = eval(calculation);
+            });
+
+            clear.addEventListener("click", () => {
+                pantalla.textContent = 0;
             })
         </script>
     </div>
