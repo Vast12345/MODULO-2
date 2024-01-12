@@ -1,0 +1,14 @@
+tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+tr {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    text-align: center;
+}
+td {
+    border: 1px dotted black;
+}
