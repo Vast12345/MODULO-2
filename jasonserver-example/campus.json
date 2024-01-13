@@ -1,0 +1,33 @@
+{
+  "trainers": [
+    {
+      "id": "1",
+      "nombre": "carlos",
+      "apellido": "rueda",
+      "especialidad": "backend java"
+    },
+    {
+      "id": "2",
+      "nombre": "miguel",
+      "apellido": "ruiz",
+      "especialidad": "javascript",
+      "sexo": "m",
+      "edad": "25"
+    }
+  ],
+  "campers": [
+    {
+      "id": "1",
+      "nombre": "luis",
+      "apellido": "ariza",
+      "trainerId": "1"
+    },
+    {
+      "id": "2",
+      "nombre": "Hader",
+      "apellido": "Cabrera",
+      "trainerId": "2"
+    }
+  ],
+  "salones": []
+}
