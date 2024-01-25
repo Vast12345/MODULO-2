@@ -16,18 +16,24 @@ subForm.addEventListener("submit", (e) => {
         const response = await fetch("http://localhost:4001/usuarios");
         const json = await response.json();
         console.log(json)
+
+        let matchFound = false;
+
         json.forEach((element) => {
             if (cedula === element.id & password === element.pass) {
                 alert("Signed in")
+                matchFound = true;
                 console.log(element)
                 if (element.tipoId === "2") {
-                    findUser()
+                    findUser();
                 } else if (element.tipoId === "3") {
-                    localStorage.setItem("myAcc", element.id)
-                    showProducts()
+                    // localStorage.setItem("myAcc", element.id)
+                    showProducts(element.id);
                 }
             }
         })
+        if (!matchFound) {
+            alert("Incorrect credentials, please try again.")
+        }
     };
-
 })
